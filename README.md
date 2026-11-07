@@ -9,14 +9,14 @@ Repositorio de actividades, ejercicios y proyectos desarrollados durante la asig
 
 <br>
 
-<a href="https://TU-USUARIO.github.io/herramientas-digitales-2/">
+<a href="https://arturosainesmedina.github.io/herramientas-digitales-2/">
   <img src="https://img.shields.io/badge/🌐_VISITAR_PORTAFOLIO-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Visitar portafolio">
 </a>
 
 <br><br>
 
-![GitHub repo size](https://img.shields.io/github/repo-size/TU-USUARIO/herramientas-digitales-2?color=blue&label=Tama%C3%B1o%20del%20repositorio)
-![GitHub last commit](https://img.shields.io/github/last-commit/TU-USUARIO/herramientas-digitales-2?color=green&label=%C3%9Altima%20actualizaci%C3%B3n)
+![GitHub repo size](https://img.shields.io/github/repo-size/arturosainesmedina/herramientas-digitales-2?color=blue&label=Tama%C3%B1o%20del%20repositorio)
+![GitHub last commit](https://img.shields.io/github/last-commit/arturosainesmedina/herramientas-digitales-2?color=green&label=%C3%9Altima%20actualizaci%C3%B3n)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Publicado-success?logo=github)
 
 </div>
@@ -33,7 +33,7 @@ El objetivo es mantener un espacio organizado donde se puedan consultar las acti
 
 | N.º | Actividad | Descripción | Enlace |
 |:---:|---|---|:---:|
-| 01 | Infografía: Retiro en cajero | Aplicación de la lógica algorítmica mediante la simulación de un retiro de dinero en un cajero automático. | [Ver actividad](infografia_logica_algoritmica_retiro_cajero.html) |
+| 01 | Infografía: Retiro en cajero | Aplicación de la lógica algorítmica mediante la simulación de un retiro de dinero en un cajero automático. | [Ver actividad](S4_Infografia-sobre-Resolucion-de-Problemas-con-Logica-Algoritmica/infografia_logica_algoritmica_retiro_cajero.html) |
 
 > 🚧 Este listado se actualizará conforme se desarrollen nuevas actividades durante la asignatura.
 
@@ -52,7 +52,7 @@ El objetivo es mantener un espacio organizado donde se puedan consultar las acti
 
 Las actividades también pueden visualizarse desde el sitio publicado mediante **GitHub Pages**, sin necesidad de descargar los archivos.
 
-👉 [**Abrir portafolio académico**](https://TU-USUARIO.github.io/herramientas-digitales-2/)
+👉 [**Abrir portafolio académico**](https://arturosainesmedina.github.io/herramientas-digitales-2/)
 
 ---
 
