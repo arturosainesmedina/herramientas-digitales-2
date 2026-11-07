@@ -31,7 +31,7 @@ El objetivo es mantener un espacio organizado donde se puedan consultar las acti
 
 ## 📂 Actividades desarrolladas
 
-| N.º | Actividad | Descripción | Enlace |
+| N.º | Actividad | Descripción | Enlace al código |
 |:---:|---|---|:---:|
 | 01 | Infografía: Retiro en cajero | Aplicación de la lógica algorítmica mediante la simulación de un retiro de dinero en un cajero automático. | [Ver actividad](S4_Infografia-sobre-Resolucion-de-Problemas-con-Logica-Algoritmica/infografia_logica_algoritmica_retiro_cajero.html) |
 
