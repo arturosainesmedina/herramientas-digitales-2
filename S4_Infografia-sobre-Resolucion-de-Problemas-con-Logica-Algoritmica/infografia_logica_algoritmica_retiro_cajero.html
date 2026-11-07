@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resolución de problemas con lógica algorítmica - Retirar dinero</title>
+<style>
+:root{--navy:#17324d;--blue:#286b9b;--teal:#1c8a83;--gold:#f2b84b;--pale:#eef5f8;--ink:#243746}
+*{box-sizing:border-box}
+body{margin:0;background:#e9eff3;color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
+.poster{max-width:1050px;margin:24px auto;background:#fff;box-shadow:0 12px 36px #18334a22;overflow:hidden;border-radius:18px}
+header{background:linear-gradient(125deg,var(--navy),var(--blue));color:#fff;padding:34px 42px 30px}
+.kicker{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#cce4f1;font-weight:bold}
+h1{font-size:clamp(28px,4vw,42px);line-height:1.08;margin:10px 0}
+header p{max-width:760px;margin:12px 0 0;color:#e4f1f7;font-size:16px}
+main{padding:28px 36px 34px}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:25px}
+.flow div{background:var(--pale);border:1px solid #d7e5ed;border-radius:12px;padding:13px;text-align:center;font-weight:bold;color:var(--navy)}
+.flow b{display:block;font-size:23px;color:var(--teal);margin-bottom:3px}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{border:1px solid #dce6ec;border-radius:14px;padding:19px 20px;background:#fff;box-shadow:0 3px 10px #17324d0b}
+.card h2{font-size:19px;color:var(--navy);margin:0 0 8px;display:flex;align-items:center;gap:9px}
+.num{background:var(--teal);color:#fff;border-radius:50%;width:31px;height:31px;display:inline-grid;place-items:center;font-size:16px;flex:none}
+.card p{margin:7px 0}
+.card ul{padding-left:20px;margin:8px 0}
+.question{background:#fff7e5;border-left:4px solid var(--gold);padding:9px 12px;border-radius:5px;margin-top:12px;font-size:14px}
+.more{margin-top:10px}
+.more button{background:var(--blue);font-size:13px;padding:8px 11px}
+.detail{display:none;background:#eef5f8;padding:10px 12px;border-radius:8px;margin-top:9px;font-size:14px}
+.detail.show{display:block}
+.example{margin-top:22px;background:#f1f7fa;border-radius:15px;padding:21px}
+.example h2{margin:0 0 6px;color:var(--navy)}
+.example-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start}
+.code{background:#17324d;color:#f2f7fa;padding:15px;border-radius:10px;font-family:Consolas,monospace;font-size:14px;white-space:pre-line}
+.interactive{background:#fff;border:1px solid #d5e3ea;border-radius:11px;padding:15px}
+label{font-weight:bold;font-size:14px;display:block;margin-bottom:5px}
+input{width:100%;padding:10px;border:1px solid #b8cbd6;border-radius:7px;font-size:16px;margin-bottom:10px}
+button{background:var(--teal);border:0;color:#fff;padding:10px 14px;border-radius:8px;font-weight:bold;cursor:pointer}
+button:hover{filter:brightness(.92)}
+.result{margin-top:10px;font-weight:bold;color:var(--navy);min-height:24px}
+.note{font-size:12px;color:#536b7b;margin-top:9px}
+footer{background:var(--navy);color:#eaf3f7;padding:18px 36px;text-align:center;font-size:13px}
+@media(max-width:700px){main{padding:20px}.steps,.example-grid{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}header{padding:28px 24px}}
+@media print{body{background:#fff}.poster{margin:0;box-shadow:none}.more,.interactive button{display:none}.detail{display:block}}
+</style>
+</head>
+<body>
+<div class="poster">
+<header>
+ <div class="kicker">Pensamiento lógico · Guía visual</div>
+ <h1>Resolución de problemas<br>con lógica algorítmica</h1>
+ <p>Ejemplo práctico: retirar dinero de un cajero automático. Observa cómo se analiza una situación, se organiza una secuencia de pasos y se comprueba el resultado.</p>
+</header>
+<main>
+ <div class="flow" aria-label="Secuencia del proceso">
+  <div><b>1</b>Comprender</div><div><b>2</b>Planear</div><div><b>3</b>Desarrollar</div><div><b>4</b>Probar</div>
+ </div>
+ <section class="steps">
+  <article class="card">
+   <h2><span class="num">1</span>Comprender el problema</h2>
+   <p>Queremos retirar una cantidad de dinero de nuestra cuenta usando un cajero automático.</p>
+   <ul><li><b>Entradas:</b> tarjeta, clave personal y monto a retirar.</li><li><b>Condiciones:</b> clave correcta, saldo suficiente y cajero con efectivo.</li><li><b>Salida:</b> dinero entregado y saldo actualizado.</li></ul>
+   <div class="question"><b>Pregúntate:</b> ¿Cuánto dinero necesito retirar? ¿Tengo saldo suficiente?</div>
+   <div class="more"><button onclick="toggle('d1')">Ver ejemplo</button><div id="d1" class="detail">Si necesito retirar $40, debo tener al menos $40 disponibles y el cajero debe contar con efectivo para entregar ese monto.</div></div>
+  </article>
+  <article class="card">
+   <h2><span class="num">2</span>Planear la solución</h2>
+   <p>Antes de ejecutar la operación, organizamos los pasos y las posibles decisiones.</p>
+   <ul><li>Insertar la tarjeta e ingresar la clave.</li><li>Seleccionar «Retiro» e indicar el monto.</li><li>Verificar la clave, el saldo y la disponibilidad de efectivo.</li><li>Si todo es correcto, autorizar el retiro.</li></ul>
+   <div class="question"><b>Pregúntate:</b> ¿Qué debe comprobar el cajero antes de entregar el dinero?</div>
+   <div class="more"><button onclick="toggle('d2')">Ver ejemplo</button><div id="d2" class="detail">El cajero debe validar primero la clave. Luego comprueba que el monto solicitado no supere el saldo disponible y que tenga efectivo suficiente.</div></div>
+  </article>
+  <article class="card">
+   <h2><span class="num">3</span>Desarrollar el algoritmo</h2>
+   <p>Convertimos el plan en instrucciones claras, ordenadas y con decisiones cuando sea necesario.</p>
+   <ul><li>Leer la tarjeta y la clave.</li><li>Si la clave es correcta, solicitar el monto.</li><li>Si hay saldo y efectivo, entregar el dinero y actualizar la cuenta.</li><li>Si no se cumplen las condiciones, mostrar un mensaje y no realizar el retiro.</li><li>Finalizar la operación y retirar la tarjeta.</li></ul>
+   <div class="question"><b>Recuerda:</b> un algoritmo debe contemplar tanto el camino correcto como los posibles errores.</div>
+   <div class="more"><button onclick="toggle('d3')">Ver ejemplo</button><div id="d3" class="detail">Pseudocódigo: INICIO → Validar clave → Solicitar monto → ¿Saldo suficiente? → Sí: entregar efectivo y actualizar saldo / No: mostrar mensaje → FIN.</div></div>
+  </article>
+  <article class="card">
+   <h2><span class="num">4</span>Analizar y probar</h2>
+   <p>Probamos el procedimiento con distintos valores para revisar que las decisiones sean correctas.</p>
+   <ul><li>Probar un retiro permitido.</li><li>Probar un monto mayor al saldo.</li><li>Comprobar que el saldo solo disminuya si el retiro se realiza.</li><li>Corregir cualquier error encontrado.</li></ul>
+   <div class="question"><b>Pregúntate:</b> ¿El cajero entrega dinero solamente cuando se cumplen las condiciones?</div>
+   <div class="more"><button onclick="toggle('d4')">Ver ejemplo</button><div id="d4" class="detail">Con saldo de $100 y retiro de $40, el resultado esperado es entregar $40 y dejar $60. Si se solicitan $120, debe rechazar la operación y conservar el saldo de $100.</div></div>
+  </article>
+ </section>
+ <section class="example">
+  <h2>Ejemplo interactivo: simular un retiro</h2>
+  <p>Ingresa un saldo disponible y el monto que deseas retirar. La simulación comprobará si se puede realizar la operación.</p>
+  <div class="example-grid">
+   <div class="code">INICIO
+  Leer saldo disponible
+  Leer monto a retirar
+  Si monto > 0 Y monto <= saldo
+      saldo = saldo - monto
+      Mostrar "Retiro aprobado"
+      Mostrar nuevo saldo
+  Si no
+      Mostrar "Retiro no permitido"
+  FIN SI
+FIN</div>
+   <div class="interactive">
+    <label for="saldo">Saldo disponible ($)</label><input id="saldo" type="number" min="0" step="0.01" value="100">
+    <label for="monto">Monto a retirar ($)</label><input id="monto" type="number" min="0" step="0.01" value="40">
+    <button onclick="retirar()">Simular retiro</button>
+    <div class="result" id="resultado" aria-live="polite">Resultado: retiro aprobado. Nuevo saldo: $60.00</div>
+    <div class="note">Esta es una simulación educativa; no se conecta a un banco ni realiza transacciones reales.</div>
+   </div>
+  </div>
+ </section>
+</main>
+<footer>La lógica algorítmica nos ayuda a analizar condiciones, tomar decisiones y verificar que cada paso produzca el resultado esperado.</footer>
+</div>
+<script>
+function toggle(id){document.getElementById(id).classList.toggle('show')}
+function retirar(){
+ const sv=document.getElementById('saldo').value, mv=document.getElementById('monto').value;
+ const out=document.getElementById('resultado');
+ if(sv.trim()===''||mv.trim()===''){out.textContent='Ingresa el saldo y el monto para continuar.';return}
+ const saldo=Number(sv), monto=Number(mv);
+ if(!Number.isFinite(saldo)||!Number.isFinite(monto)||saldo<0||monto<=0){out.textContent='Verifica los datos: el saldo no puede ser negativo y el retiro debe ser mayor que cero.';return}
+ if(monto>saldo){out.textContent='Retiro no permitido: el monto supera el saldo disponible. El saldo sigue siendo $'+saldo.toFixed(2)+'.';return}
+ out.textContent='Retiro aprobado. Nuevo saldo: $'+(saldo-monto).toFixed(2)+'.';
+}
+</script>
+</body>
+</html>
